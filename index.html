@@ -81,19 +81,20 @@
     .slide.active { opacity: 1; z-index: 10; }
     .dot { cursor: pointer; transition: all 0.3s ease; }
 
-    /* SCREENSHOT FEEDBACK SLIDER STYLES */
+    /* SCREENSHOT FEEDBACK SLIDER STYLES (UPDATED SMALLER SIZE) */
     .screenshot-track {
         display: flex;
-        gap: 20px;
+        gap: 15px; /* Gap slightly reduced */
         transition: transform 0.5s ease-in-out;
-        will-change: transform; /* Performance optimization */
+        will-change: transform; 
     }
     .screenshot-card {
-        min-width: 300px; /* Mobile width */
+        min-width: 160px; /* UPDATED: Smaller width to show ~8 on desktop */
+        width: 160px;
         flex: 0 0 auto;
-        border-radius: 12px;
+        border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         border: 1px solid #e8dcc8;
         background: white;
     }
@@ -106,7 +107,7 @@
     /* POPUP STYLES */
     .sales-popup {
         transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-        transform: translateY(150%); /* Start hidden below */
+        transform: translateY(150%); 
         opacity: 0;
     }
     .sales-popup.show {
@@ -182,9 +183,7 @@
       <div class="service-card rounded-lg p-8">
        <h3 class="text-xl font-bold text-brand mb-2">Marriage Audio</h3>
        <p class="text-sm text-gray-600 mb-4 font-light">10 Minutes</p>
-       <ul class="text-gray-700 space-y-2 mb-6 text-sm">
-        <li>• Marriage timing</li><li>• Blockages &amp; solutions</li><li>• Universe guidance</li><li>• Remedies &amp; inner work</li>
-       </ul>
+       <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Marriage timing</li><li>• Blockages &amp; solutions</li><li>• Universe guidance</li><li>• Remedies &amp; inner work</li></ul>
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Audio%20Reading%20(10%20min)%20-%20Rs.%20999" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹999 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Audio%20Reading%20(10%20min)%20-%20%2425" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $25 </a></div>
       </div>
       <div class="service-card rounded-lg p-8">
@@ -456,11 +455,11 @@
         track.appendChild(div);
     });
 
-    // Auto Scroll Logic
+    // Auto Scroll Logic - ADJUSTED FOR SMALLER CARDS
     let scrollAmount = 0;
     function autoScrollScreenshots() {
         if (!track) return;
-        const cardWidth = 320; // card width + gap
+        const cardWidth = 175; // 160px width + 15px gap
         const maxScroll = track.scrollWidth - track.clientWidth;
         
         scrollAmount += cardWidth;
