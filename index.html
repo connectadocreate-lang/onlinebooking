@@ -86,6 +86,7 @@
         display: flex;
         gap: 20px;
         transition: transform 0.5s ease-in-out;
+        will-change: transform; /* Performance optimization */
     }
     .screenshot-card {
         min-width: 300px; /* Mobile width */
@@ -94,6 +95,7 @@
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border: 1px solid #e8dcc8;
+        background: white;
     }
     .screenshot-card img {
         width: 100%;
@@ -438,10 +440,11 @@
     if(slides.length > 0) startSlider();
 
     // --- SCREENSHOT FEEDBACK SLIDER SCRIPT (Auto Scroll 3s) ---
+    // Updated with .jpeg extensions
     const feedbackImages = [
-        "W1 (1).jpg", "W1 (2).jpg", "W1 (3).jpg", "W1 (4).jpg", "W1 (5).jpg",
-        "W1 (6).jpg", "W1 (7).jpg", "W1 (8).jpg", "W1 (9).jpg", "W1 (10).jpg",
-        "W1 (11).jpg", "W1 (12).jpg", "W1 (13).jpg", "W1 (14).jpg"
+        "W1 (1).jpeg", "W1 (2).jpeg", "W1 (3).jpeg", "W1 (4).jpeg", "W1 (5).jpeg",
+        "W1 (6).jpeg", "W1 (7).jpeg", "W1 (8).jpeg", "W1 (9).jpeg", "W1 (10).jpeg",
+        "W1 (11).jpeg", "W1 (12).jpeg", "W1 (13).jpeg", "W1 (14).jpeg"
     ];
     const track = document.getElementById('screenshot-track');
     
