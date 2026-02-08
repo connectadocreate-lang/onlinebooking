@@ -13,14 +13,8 @@
     }
     
     @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     @keyframes scroll {
@@ -28,18 +22,9 @@
       100% { transform: translateX(-100%); }
     }
     
-    .scroll-to-top {
-      animation: slideUp 0.3s ease-out;
-    }
-    
-    .scroll-to-top:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 30px rgba(184, 134, 11, 0.6);
-    }
-    
-    .scroll-text {
-      animation: scroll 20s linear infinite;
-    }
+    .scroll-to-top { animation: slideUp 0.3s ease-out; }
+    .scroll-to-top:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(184, 134, 11, 0.6); }
+    .scroll-text { animation: scroll 20s linear infinite; }
     
     .premium-bg {
       background: linear-gradient(135deg, #fffef9 0%, #f5f1e8 25%, #ede4d3 50%, #e8dcc8 75%, #f0e8d8 100%);
@@ -49,13 +34,8 @@
       background: linear-gradient(135deg, rgba(184, 134, 11, 0.03) 0%, rgba(212, 165, 116, 0.03) 100%);
     }
     
-    .text-brand {
-      color: #b8860b;
-    }
-    
-    .text-dark {
-      color: #2d2d2d;
-    }
+    .text-brand { color: #b8860b; }
+    .text-dark { color: #2d2d2d; }
     
     .btn-book {
       background: linear-gradient(135deg, #b8860b 0%, #d4a574 100%);
@@ -63,7 +43,6 @@
       color: white;
       font-weight: 600;
     }
-    
     .btn-book:hover {
       background: linear-gradient(135deg, #8b6914 0%, #c9945f 100%);
       transform: translateY(-2px);
@@ -76,7 +55,6 @@
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
     }
-    
     .service-card:hover {
       border-color: #b8860b;
       background: rgba(255, 255, 255, 1);
@@ -92,46 +70,102 @@
       color: #2d2d2d;
     }
 
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: #b8860b;
-    }
-
     .header-nav {
       background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 245, 240, 0.98) 100%);
       border-bottom: 2px solid #e8dcc8;
       backdrop-filter: blur(10px);
     }
     
-    /* Custom style for profile image */
     .profile-img-container img {
         box-shadow: 0 10px 25px rgba(184, 134, 11, 0.2);
+    }
+
+    /* SLIDER STYLES */
+    #hero-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+    /* Mobile Height */
+    .slider-height {
+        height: 500px; 
+    }
+    /* Desktop Height */
+    @media (min-width: 768px) {
+        .slider-height {
+            height: 600px; /* Adjust based on your banner image ratio */
+        }
+    }
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        z-index: 0;
+    }
+    .slide.active {
+        opacity: 1;
+        z-index: 10;
+    }
+    .dot {
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full premium-bg text-dark overflow-x-hidden" style="font-family: 'Lora', serif;"><div class="header-nav fixed top-0 left-0 right-0 z-50">
-   <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-    <h1 class="text-2xl font-bold text-brand" style="font-family: 'Playfair Display', serif;">Spiritual Girl 888</h1>
-    <div class="text-sm text-gray-600 font-medium">
-      Divine Tarot &amp; Spiritual Readings
-    </div>
+ <body class="h-full premium-bg text-dark overflow-x-hidden" style="font-family: 'Lora', serif;">
+  
+  <div class="header-nav fixed top-0 left-0 right-0 z-50">
+   <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-center">
+    <h1 class="text-3xl font-bold text-brand" style="font-family: 'Playfair Display', serif;">Spiritual Girl 888</h1>
    </div>
-  </div><button id="scroll-to-top" class="fixed bottom-8 right-8 bg-gradient-to-br from-amber-700 to-yellow-600 hover:from-amber-600 hover:to-yellow-500 text-white font-bold py-3 px-3 rounded-full shadow-lg transition-all duration-300 z-40 hidden scroll-to-top">
+  </div>
+
+  <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-gradient-to-br from-amber-700 to-yellow-600 hover:from-amber-600 hover:to-yellow-500 text-white font-bold py-3 px-3 rounded-full shadow-lg transition-all duration-300 z-40 hidden scroll-to-top">
    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-   </svg></button> <div class="fixed top-16 left-0 right-0 z-50 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 py-2.5 overflow-hidden border-b-2 border-yellow-200">
-   <div class="scroll-text whitespace-nowrap text-brand font-semibold tracking-widest text-sm" id="scrolling-notice">
+   </svg>
+  </button> 
+
+  <div class="fixed top-20 left-0 right-0 z-50 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 py-2.5 overflow-hidden border-b-2 border-yellow-200" style="top: 72px;"> <div class="scroll-text whitespace-nowrap text-brand font-semibold tracking-widest text-sm" id="scrolling-notice">
     NO REFUND ONCE PAID | READING WILL BE PROVIDED WITHIN 3-4 DAYS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NO REFUND ONCE PAID | READING WILL BE PROVIDED WITHIN 3-4 DAYS
    </div>
-  </div><div class="relative z-10 pt-32 overflow-auto h-full gradient-overlay"><header class="text-center py-16 px-4 max-w-7xl mx-auto">
-    <h2 class="hero-title mb-4">Spiritual Girl 888</h2>
-    <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto font-light italic mb-2">Divine Tarot Readings &amp; Spiritual Guidance</p>
-    <p class="text-sm text-brand font-semibold tracking-widest">TRANSFORMING LIVES THROUGH CLARITY</p>
-   </header><main class="max-w-7xl mx-auto px-4 pb-20"><section class="mb-20">
+  </div>
+
+  <div class="relative z-10 pt-28 overflow-auto h-full gradient-overlay">
+    
+   <div id="hero-slider" class="slider-height shadow-lg mb-12 group">
+        <div class="slide active" data-index="0">
+            <picture>
+                <source media="(min-width: 768px)" srcset="DB1.png">
+                <img src="MB1.png" alt="Banner 1" class="w-full h-full object-cover object-top">
+            </picture>
+        </div>
+        <div class="slide" data-index="1">
+            <picture>
+                <source media="(min-width: 768px)" srcset="DB2.png">
+                <img src="MB2.png" alt="Banner 2" class="w-full h-full object-cover object-top">
+            </picture>
+        </div>
+        <div class="slide" data-index="2">
+            <picture>
+                <source media="(min-width: 768px)" srcset="DB3.png">
+                <img src="MB3.png" alt="Banner 3" class="w-full h-full object-cover object-top">
+            </picture>
+        </div>
+
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3 z-20">
+            <button class="w-3 h-3 rounded-full bg-white opacity-100 dot shadow-md" onclick="changeSlide(0)"></button>
+            <button class="w-3 h-3 rounded-full bg-white opacity-50 dot shadow-md" onclick="changeSlide(1)"></button>
+            <button class="w-3 h-3 rounded-full bg-white opacity-50 dot shadow-md" onclick="changeSlide(2)"></button>
+        </div>
+   </div>
+   <main class="max-w-7xl mx-auto px-4 pb-20">
+    <section class="mb-20">
      <h2 class="section-title text-center mb-12">Marriage Readings</h2>
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><div class="service-card rounded-lg p-8">
        <h3 class="text-xl font-bold text-brand mb-2">Marriage Audio</h3>
@@ -370,34 +404,34 @@
          </div>
       </div>
     </section>
+
     <section class="mb-20">
        <h2 class="section-title text-center mb-12">Client Love & Feedback</h2>
        <div class="grid md:grid-cols-3 gap-6">
           <div class="service-card rounded-lg p-8 text-center relative overflow-hidden">
              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-300 to-yellow-500"></div>
              <div class="text-yellow-500 text-xl mb-4 tracking-widest">★★★★★</div>
-             <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"I was facing so many delays in my marriage. Uma ji's guidance gave me hope and clarity. Her remedies worked like magic, and I am finally happily engaged! Cannot thank you enough."</p>
+             <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"I was facing so many delays in my marriage. Uma ji's guidance gave me hope and clarity. Her remedies worked like magic, and I am finally happily engaged!"</p>
              <h4 class="font-bold text-brand font-playfair text-lg">- Priya Sharma</h4>
              <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Topic: Marriage</span>
           </div>
-
           <div class="service-card rounded-lg p-8 text-center relative overflow-hidden">
              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-300 to-yellow-500"></div>
              <div class="text-yellow-500 text-xl mb-4 tracking-widest">★★★★★</div>
-             <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"My relationship was going through a very rough patch. The reading was spot on and helped me understand my partner's perspective. Highly recommended for relationship clarity."</p>
+             <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"My relationship was going through a very rough patch. The reading was spot on and helped me understand my partner's perspective. Highly recommended."</p>
              <h4 class="font-bold text-brand font-playfair text-lg">- Rohan Verma</h4>
              <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Topic: Relationship</span>
           </div>
-
           <div class="service-card rounded-lg p-8 text-center relative overflow-hidden">
              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-300 to-yellow-500"></div>
              <div class="text-yellow-500 text-xl mb-4 tracking-widest">★★★★★</div>
-             <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"I had been feeling constantly drained and low on energy. The healing session was incredible. I feel lighter, healthier, and more positive now. Thank you so much, Uma!"</p>
+             <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"I had been feeling constantly drained and low on energy. The healing session was incredible. I feel lighter, healthier, and more positive now."</p>
              <h4 class="font-bold text-brand font-playfair text-lg">- Anjali Iyer</h4>
              <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Topic: Health</span>
           </div>
        </div>
     </section>
+
     <footer class="text-center py-12 border-t-2 border-yellow-200 mt-20">
       <h3 class="text-2xl font-bold text-brand mb-2" style="font-family: 'Playfair Display', serif;">Spiritual Girl 888</h3>
       <p class="text-gray-700 mb-1 font-light italic">Divine Tarot &amp; Spiritual Guidance</p>
@@ -419,10 +453,9 @@
       button_color: "#b8860b"
     };
     
-    // Scroll to Top Button Functionality
+    // Scroll to Top Button
     const scrollToTopBtn = document.getElementById('scroll-to-top');
     const mainContent = document.querySelector('.overflow-auto');
-    
     if (mainContent && scrollToTopBtn) {
       mainContent.addEventListener('scroll', () => {
         if (mainContent.scrollTop > 300) {
@@ -431,60 +464,80 @@
           scrollToTopBtn.classList.add('hidden');
         }
       });
-      
       scrollToTopBtn.addEventListener('click', () => {
-        mainContent.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
+        mainContent.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
+
+    // --- HERO SLIDER SCRIPT START ---
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+    let slideInterval;
+
+    function showSlide(index) {
+        // Hide all slides
+        slides.forEach((slide) => {
+            slide.classList.remove('active');
+            slide.style.zIndex = 0;
+        });
+        
+        // Reset dots
+        dots.forEach(dot => {
+            dot.classList.remove('opacity-100');
+            dot.classList.add('opacity-50');
+        });
+
+        // Show active slide
+        slides[index].classList.add('active');
+        
+        // Highlight active dot
+        dots[index].classList.remove('opacity-50');
+        dots[index].classList.add('opacity-100');
+
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        let nextIndex = (currentSlide + 1) % totalSlides;
+        showSlide(nextIndex);
+    }
+
+    function startSlider() {
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function changeSlide(index) {
+        clearInterval(slideInterval);
+        showSlide(index);
+        startSlider();
+    }
+
+    // Initialize Slider
+    if(slides.length > 0) {
+        startSlider();
+    }
+    // --- HERO SLIDER SCRIPT END ---
     
     // Initialize Element SDK
     if (window.elementSdk) {
       window.elementSdk.init({
         defaultConfig,
         onConfigChange: async (config) => {
-          // Update scrolling notice
           const scrollingNotice = document.getElementById('scrolling-notice');
           if (scrollingNotice) {
             const notice = config.scrolling_notice || defaultConfig.scrolling_notice;
             scrollingNotice.textContent = notice + " \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 " + notice;
           }
-          
-          // Update document title
           document.title = config.site_title || defaultConfig.site_title;
         },
         mapToCapabilities: (config) => ({
           recolorables: [
-            {
-              get: () => config.text_brand || defaultConfig.text_brand,
-              set: (value) => {
-                config.text_brand = value;
-                window.elementSdk.setConfig({ text_brand: value });
-              }
-            },
-            {
-              get: () => config.text_dark || defaultConfig.text_dark,
-              set: (value) => {
-                config.text_dark = value;
-                window.elementSdk.setConfig({ text_dark: value });
-              }
-            },
-            {
-              get: () => config.bg_light || defaultConfig.bg_light,
-              set: (value) => {
-                config.bg_light = value;
-                window.elementSdk.setConfig({ bg_light: value });
-              }
-            },
-            {
-              get: () => config.button_color || defaultConfig.button_color,
-              set: (value) => {
-                config.button_color = value;
-                window.elementSdk.setConfig({ button_color: value });
-              }
-            }
+            { get: () => config.text_brand || defaultConfig.text_brand, set: (value) => { config.text_brand = value; window.elementSdk.setConfig({ text_brand: value }); }},
+            { get: () => config.text_dark || defaultConfig.text_dark, set: (value) => { config.text_dark = value; window.elementSdk.setConfig({ text_dark: value }); }},
+            { get: () => config.bg_light || defaultConfig.bg_light, set: (value) => { config.bg_light = value; window.elementSdk.setConfig({ bg_light: value }); }},
+            { get: () => config.button_color || defaultConfig.button_color, set: (value) => { config.button_color = value; window.elementSdk.setConfig({ button_color: value }); }}
           ],
           borderables: [],
           fontEditable: undefined,
