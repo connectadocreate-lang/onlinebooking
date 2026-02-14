@@ -1,581 +1,1107 @@
 <!doctype html>
+
 <html lang="en" class="h-full">
+
  <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Spiritual Girl 888</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script src="/_sdk/element_sdk.js"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&amp;family=Lora:wght@400;600&amp;display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
+
     body { box-sizing: border-box; scroll-behavior: smooth; }
+
     
+
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
     @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
     
+
     .scroll-to-top { animation: slideUp 0.3s ease-out; }
+
     .scroll-to-top:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(184, 134, 11, 0.6); }
+
     .scroll-text { animation: scroll 20s linear infinite; }
+
     .scroll-text-slow { animation: scroll 30s linear infinite; }
+
     
+
     .premium-bg { background: linear-gradient(135deg, #fffef9 0%, #f5f1e8 25%, #ede4d3 50%, #e8dcc8 75%, #f0e8d8 100%); }
+
     .gradient-overlay { background: linear-gradient(135deg, rgba(184, 134, 11, 0.03) 0%, rgba(212, 165, 116, 0.03) 100%); }
+
     .text-brand { color: #b8860b; }
+
     .text-dark { color: #2d2d2d; }
+
     
+
     .btn-book {
+
       background: linear-gradient(135deg, #b8860b 0%, #d4a574 100%);
+
       transition: all 0.3s ease;
+
       color: white; font-weight: 600;
+
     }
+
     .btn-book:hover {
+
       background: linear-gradient(135deg, #8b6914 0%, #c9945f 100%);
+
       transform: translateY(-2px);
+
       box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+
     }
+
     
+
     .service-card {
+
       background: rgba(255, 255, 255, 0.95);
+
       border: 2px solid #e8dcc8;
+
       backdrop-filter: blur(10px);
+
       transition: all 0.3s ease;
+
     }
+
     .service-card:hover {
+
       border-color: #b8860b;
+
       background: rgba(255, 255, 255, 1);
+
       box-shadow: 0 12px 30px rgba(184, 134, 11, 0.15);
+
       transform: translateY(-5px);
+
     }
+
+
 
     .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; color: #2d2d2d; }
+
     .header-nav { background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 245, 240, 0.98) 100%); border-bottom: 2px solid #e8dcc8; backdrop-filter: blur(10px); }
+
     .profile-img-container img { box-shadow: 0 10px 25px rgba(184, 134, 11, 0.2); }
 
+
+
     /* SLIDER STYLES */
+
     #hero-slider { position: relative; width: 100%; overflow: hidden; }
+
     .slider-height { height: 500px; }
+
     @media (min-width: 768px) { .slider-height { height: 600px; } }
+
     .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; z-index: 0; }
+
     .slide.active { opacity: 1; z-index: 10; }
+
     .dot { cursor: pointer; transition: all 0.3s ease; }
 
+
+
     /* SCREENSHOT FEEDBACK SLIDER */
+
     .screenshot-track { display: flex; gap: 15px; transition: transform 0.5s ease-in-out; will-change: transform; }
+
     .screenshot-card { min-width: 160px; width: 160px; flex: 0 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid #e8dcc8; background: white; }
+
     .screenshot-card img { width: 100%; height: auto; display: block; }
+
     
-    /* POPUP STYLES */
+
+    /* POPUP STYLES (Sales Notification) */
+
     .sales-popup { transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); transform: translateY(150%); opacity: 0; }
+
     .sales-popup.show { transform: translateY(0); opacity: 1; }
 
-    /* WELCOME POPUP */
-    .welcome-overlay { display: none; }
-    .welcome-overlay.active { display: flex; animation: fadeIn 0.5s ease-out; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
+
   <style>@view-transition { navigation: auto; }</style>
+
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+
  </head>
+
  <body class="h-full premium-bg text-dark overflow-x-hidden" style="font-family: 'Lora', serif;">
+
   
-  <div id="welcome-popup" class="welcome-overlay fixed inset-0 z-[100] items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div class="relative w-full max-w-lg bg-transparent rounded-xl overflow-hidden shadow-2xl transform scale-100 transition-transform">
-          <button onclick="closeWelcomePopup()" class="absolute top-2 right-2 z-10 bg-white/80 text-gray-800 hover:text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold text-xl shadow-md">&times;</button>
-          <a href="https://wa.me/919395857987?text=Hi!%20I%20saw%20your%20website%20popup%20offer%20and%20want%20to%20know%20more." target="_blank">
-            <img src="VL1.png" alt="Welcome Offer" class="w-full h-auto object-cover rounded-xl">
-          </a>
-      </div>
-  </div>
 
   <div class="header-nav fixed top-0 left-0 right-0 z-50">
+
    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-center relative">
+
     <h1 class="text-3xl font-bold text-brand text-center" style="font-family: 'Playfair Display', serif;">Spiritual Girl 888</h1>
+
    </div>
+
   </div>
+
+
 
   <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-gradient-to-br from-amber-700 to-yellow-600 hover:from-amber-600 hover:to-yellow-500 text-white font-bold py-3 px-3 rounded-full shadow-lg transition-all duration-300 z-40 hidden scroll-to-top">
+
    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+
   </button> 
 
+
+
   <div id="sales-popup" class="sales-popup fixed bottom-5 left-5 z-[60] bg-white rounded-lg shadow-2xl border-l-4 border-yellow-500 p-4 max-w-xs flex items-center gap-4">
+
       <div class="bg-yellow-100 p-2 rounded-full shrink-0">
+
           <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+
       </div>
+
       <div>
+
           <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide">Just Booked</p>
+
           <p id="popup-message" class="text-sm font-bold text-gray-800 leading-tight">Someone booked a reading</p>
+
           <p class="text-[10px] text-gray-400 mt-1">Few seconds ago</p>
+
       </div>
+
   </div>
+
+
 
   <div class="fixed top-20 left-0 right-0 z-50 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 py-2.5 overflow-hidden border-b-2 border-yellow-200" style="top: 72px;"> 
+
    <div class="scroll-text whitespace-nowrap text-brand font-semibold tracking-widest text-sm" id="scrolling-notice">
+
     NO REFUND ONCE PAID | READING WILL BE PROVIDED WITHIN 3-4 DAYS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NO REFUND ONCE PAID | READING WILL BE PROVIDED WITHIN 3-4 DAYS
+
    </div>
+
   </div>
+
+
 
   <div class="relative z-10 pt-28 overflow-auto h-full gradient-overlay">
+
     
+
    <div id="hero-slider" class="slider-height shadow-lg group">
+
         <div class="slide active" data-index="0">
+
             <picture>
+
                 <source media="(min-width: 768px)" srcset="DB1.png">
+
                 <img src="MB1.png" alt="Banner 1" class="w-full h-full object-cover object-top">
+
             </picture>
+
         </div>
+
         <div class="slide" data-index="1">
+
             <picture>
+
                 <source media="(min-width: 768px)" srcset="DB2.png">
+
                 <img src="MB2.png" alt="Banner 2" class="w-full h-full object-cover object-top">
+
             </picture>
+
         </div>
+
         <div class="slide" data-index="2">
+
             <picture>
+
                 <source media="(min-width: 768px)" srcset="DB3.png">
+
                 <img src="MB3.png" alt="Banner 3" class="w-full h-full object-cover object-top">
+
             </picture>
+
         </div>
+
         <div class="slide" data-index="3">
+
             <picture>
+
                 <source media="(min-width: 768px)" srcset="DB4.png">
+
                 <img src="MB4.png" alt="Banner 4" class="w-full h-full object-cover object-top">
+
             </picture>
+
         </div>
+
+
 
         <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3 z-20">
+
             <button class="w-3 h-3 rounded-full bg-white opacity-100 dot shadow-md" onclick="changeSlide(0)"></button>
+
             <button class="w-3 h-3 rounded-full bg-white opacity-50 dot shadow-md" onclick="changeSlide(1)"></button>
+
             <button class="w-3 h-3 rounded-full bg-white opacity-50 dot shadow-md" onclick="changeSlide(2)"></button>
+
             <button class="w-3 h-3 rounded-full bg-white opacity-50 dot shadow-md" onclick="changeSlide(3)"></button>
+
         </div>
+
    </div>
+
+
 
    <div class="bg-brand text-white py-3 overflow-hidden border-b border-yellow-600 bg-[#b8860b] mb-12 relative z-20">
+
        <div class="scroll-text-slow whitespace-nowrap font-medium text-sm tracking-widest uppercase flex gap-8">
+
            <span>★ Marriage Reading</span> <span>★ Relationship Reading</span> <span>★ Career Prediction</span> 
+
            <span>★ Angel Guidance</span> <span>★ Future Spouse Detail</span> <span>★ Health & Healing</span>
+
            <span>★ Divine Messages</span> <span>★ Personal Consultancy</span> <span>★ Tarot Course</span>
+
            <span>★ Marriage Reading</span> <span>★ Relationship Reading</span> <span>★ Career Prediction</span>
+
        </div>
+
    </div>
 
+
+
    <main class="max-w-7xl mx-auto px-4 pb-20">
+
     
+
     <section id="marriage" class="mb-20 scroll-mt-32">
+
      <h2 class="section-title text-center mb-12">Marriage Readings</h2>
+
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Marriage Audio</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">10 Minutes</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Marriage timing</li><li>• Blockages &amp; solutions</li><li>• Universe guidance</li><li>• Remedies &amp; inner work</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Audio%20Reading%20(10%20min)%20-%20Rs.%20999" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹999 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Audio%20Reading%20(10%20min)%20-%20%2425" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $25 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Marriage Audio</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">30 Minutes - Future Spouse</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Future spouse details</li><li>• Nature &amp; appearance</li><li>• When you will meet</li><li>• Do you know them</li><li>• Remedies &amp; guidance</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Audio%20Reading%20(30%20min)%20-%20Rs.%201600" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹1,600 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Audio%20Reading%20(30%20min)%20-%20%2435" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $35 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Marriage Detailed</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">45 Minutes</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• 8 Marriage questions</li><li>• Karmic pattern check</li><li>• Full guidance &amp; clarity</li><li>• Inner work needed</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Detailed%20Reading%20(45%20min)%20-%20Rs.%202500" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹2,500 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Detailed%20Reading%20(45%20min)%20-%20%2455" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $55 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8 relative border-red-300">
+
        <div class="absolute top-4 right-4 bg-red-500 text-white text-xs px-3 py-1 rounded-full font-bold">URGENT 24HR</div>
+
        <h3 class="text-xl font-bold text-brand mb-2">Marriage Urgent</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">10 Minutes - Within 24 Hours</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Marriage timing</li><li>• Blockages &amp; solutions</li><li>• Universe guidance</li><li>• Quick remedies</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Urgent%20Reading%20(10%20min%2C%2024hr)%20-%20Rs.%201500" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹1,500 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Urgent%20Reading%20(10%20min%2C%2024hr)%20-%20%2440" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $40 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Marriage Phone Call</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">10 Minutes</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• 2 Marriage questions</li><li>• Yes/No clarity</li><li>• Universe guidance</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Phone%20Call%20(10%20min)%20-%20Rs.%201300" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹1,300 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Phone%20Call%20(10%20min)%20-%20%2445" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $45 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Marriage Phone Call</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">30 Minutes</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• 4 Marriage questions</li><li>• Blockages &amp; solutions</li><li>• Future spouse insight</li><li>• When you will meet</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Phone%20Call%20(30%20min)%20-%20Rs.%202222" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹2,222 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Phone%20Call%20(30%20min)%20-%20%2460" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $60 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8 lg:col-span-3 bg-gradient-to-br from-amber-50 to-yellow-50 border-yellow-300">
+
        <h3 class="text-2xl font-bold text-brand mb-2">Marriage Reading - Premium</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">1 Hour - Unlimited Questions</p>
+
        <p class="text-gray-700 mb-6 text-sm">Unlimited questions for your future spouse, marriage manifesting, timeline &amp; complete guidance</p>
+
        <div class="grid grid-cols-2 md:grid-cols-4 gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Audio%201hr%20-%20Rs.%205000" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Audio ₹5,000 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Phone%201hr%20-%20Rs.%206000" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Phone ₹6,000 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Audio%201hr%20-%20%2480" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Audio $80 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Marriage%20Phone%201hr%20-%20%2490" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Phone $90 </a></div>
+
       </div>
+
      </div>
+
     </section>
+
+
 
     <section id="relationship" class="mb-20 scroll-mt-32">
+
      <h2 class="section-title text-center mb-12">Relationship Readings</h2>
+
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Relationship Reading</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">10 Minutes Audio</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Partner's current energy</li><li>• What they're hiding</li><li>• Will they commit</li><li>• Next action from them</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Reading%20(10%20min)%20-%20Rs.%201111" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹1,111 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Reading%20(10%20min)%20-%20%2425" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $25 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Relationship Reading</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">30 Minutes Audio</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Connection checking</li><li>• Karmic/Soulmate check</li><li>• Marriage possibilities</li><li>• Universe advice</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Reading%20(30%20min)%20-%20Rs.%202000" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹2,000 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Reading%20(30%20min)%20-%20%2440" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $40 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Relationship Reading</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">45 Minutes Audio</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Third party check</li><li>• Is this for you</li><li>• Marriage possibility</li><li>• Future family energies</li><li>• Guidance &amp; remedy</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Reading%20(45%20min)%20-%20Rs.%203700" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹3,700 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Reading%20(45%20min)%20-%20%2450" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $50 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8 lg:col-span-3 bg-gradient-to-br from-amber-50 to-yellow-50 border-yellow-300">
+
        <h3 class="text-2xl font-bold text-brand mb-2">Relationship Reading - Premium</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">1 Hour - 4-5 Days Delivery</p>
+
        <p class="text-gray-700 mb-6 text-sm">Unlimited questions for your specific person, remedies, guidance, affirmations &amp; love messages</p>
+
        <div class="grid grid-cols-2 md:grid-cols-4 gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Audio%201hr%20-%20Rs.%205500" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Audio ₹5,500 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Phone%201hr%20-%20Rs.%206500" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Phone ₹6,500 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Audio%201hr%20-%20%2480" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Audio $80 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Relationship%20Phone%201hr%20-%20%2490" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Phone $90 </a></div>
+
       </div>
+
      </div>
+
     </section>
+
+
 
     <section id="career" class="mb-20 scroll-mt-32">
+
      <h2 class="section-title text-center mb-12">Career Predictions</h2>
+
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Short Career Reading</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">15 Minutes</p>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Career%20Reading%20(15%20min)%20-%20Rs.%20999" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹999 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Career%20Reading%20(15%20min)%20-%20%2420" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $20 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Career Reading</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">30 Minutes Phone Call</p>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Career%20Reading%20(30%20min)%20-%20Rs.%201600" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹1,600 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Career%20Reading%20(30%20min)%20-%20%2430" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $30 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Career Reading</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">45 Minutes Phone Call</p>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Career%20Reading%20(45%20min)%20-%20Rs.%202000" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹2,000 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Career%20Reading%20(45%20min)%20-%20%2445" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $45 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8 lg:col-span-3 bg-gradient-to-br from-amber-50 to-yellow-50 border-yellow-300">
+
        <h3 class="text-2xl font-bold text-brand mb-2">Career Reading - Premium</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">1 Hour Phone Call</p>
+
        <p class="text-gray-700 mb-6 text-sm">Complete career analysis with unlimited questions, guidance &amp; actionable remedies</p><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Career%20Premium%20(1hr)%20-%20Rs.%203000" target="_blank" class="btn-book block w-full py-3 px-4 rounded text-center text-sm"> ₹3,000 / $60 </a>
+
       </div>
+
      </div>
+
     </section>
+
+
 
     <section id="special" class="mb-20 scroll-mt-32">
+
      <h2 class="section-title text-center mb-12">Special Services</h2>
+
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Angel Guidance</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">One Question</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Angel message</li><li>  Yes/No clarity</li><li>• Current energy</li><li>• Guidance message</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Angel%20Guidance%20-%20Rs.%20555" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹555 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Angel%20Guidance%20-%20%2415" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $15 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Divine Messages</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">Universe Guidance</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Krishna message</li><li>• Radha Rani message</li><li>• Shiv Ji message</li><li>• Angel guidance</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Divine%20Messages%20-%20Rs.%20777" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹777 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Divine%20Messages%20-%20%2425" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $25 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Personal Consultancy</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">Phone Call Session</p>
+
        <p class="text-gray-700 mb-6 text-sm italic">Any topic consultation - Perfect if you're unsure which reading to book</p>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Consultancy%20(India)%20-%20Rs.%205000" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹5,000 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Consultancy%20(Int'l)%20-%20%24100" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $100 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8 lg:col-span-3 bg-gradient-to-br from-amber-50 to-yellow-50 border-yellow-300">
+
        <h3 class="text-2xl font-bold text-brand mb-2">Unlimited Questions - Premium</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">2 Hours - Within 5 Days Delivery</p>
+
        <p class="text-gray-700 mb-6 text-sm">Pick any topic: Relationship, Marriage, Career, Health or Personal Issues - Unlimited questions answered</p>
+
        <div class="grid grid-cols-2 md:grid-cols-4 gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Unlimited%202hr%20Audio%20-%20Rs.%2010000" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Audio ₹10K </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Unlimited%202hr%20Phone%20-%20Rs.%2012000" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Phone ₹12K </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Unlimited%202hr%20Audio%20-%20%24200" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Audio $200 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Unlimited%202hr%20Phone%20-%20%24200" target="_blank" class="btn-book py-2.5 px-4 rounded text-center text-sm"> Phone $200 </a></div>
+
       </div>
+
      </div>
+
     </section>
+
+
 
     <section id="consultation" class="mb-20 scroll-mt-32">
+
      <h2 class="section-title text-center mb-12">Consultation Sessions</h2>
+
      <div class="grid md:grid-cols-2 gap-6">
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Consultation Session</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">30 Minutes - Phone Call</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• Discuss your situation</li><li>• Get personalized advice</li><li>• Understand reading options</li><li>• Ask any questions</li><li>• Receive recommendations</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Consultation%20Session%20(30%20min)%20-%20Rs.%202000" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹2,000 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Consultation%20Session%20(30%20min)%20-%20%2430" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $30 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8">
+
        <h3 class="text-xl font-bold text-brand mb-2">Premium Consultation</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">60 Minutes - Phone Call</p>
+
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• In-depth situation analysis</li><li>• Multiple topic discussion</li><li>• Customized guidance plan</li><li>• Unlimited questions</li><li>• Follow-up support</li></ul>
+
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Premium%20Consultation%20(60%20min)%20-%20Rs.%203500" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹3,500 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Premium%20Consultation%20(60%20min)%20-%20%2450" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $50 </a></div>
+
       </div>
+
       <div class="service-card rounded-lg p-8 md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-300">
+
        <h3 class="text-xl font-bold text-brand mb-2">First Time Client Consultation</h3>
+
        <p class="text-sm text-gray-600 mb-4 font-light">15 Minutes - Perfect Introduction</p>
+
        <p class="text-gray-700 mb-6 text-sm">Perfect for first-time clients! Get to know Spiritual Girl 888, understand the services available, and receive personalized recommendations based on your needs. This is a 15-minute call to help you decide which reading is best for you.</p>
+
        <div class="flex gap-3 flex-wrap"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(15%20min)%20-%20Rs.%20499" target="_blank" class="btn-book py-2.5 px-6 rounded text-sm"> ₹499 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(15%20min)%20-%20%2410" target="_blank" class="btn-book py-2.5 px-6 rounded text-sm"> $10 </a></div>
+
       </div>
+
      </div>
+
     </section>
+
+
 
     <section id="course" class="mb-20 scroll-mt-32">
+
         <h2 class="section-title text-center mb-6">Live Tarot Course</h2>
+
         <p class="text-center text-gray-600 mb-8 italic">Class Bookings are Open</p>
+
         
+
         <div class="relative w-full shadow-lg rounded-xl overflow-hidden mb-8 group hover:shadow-xl transition-shadow duration-300">
+
             <picture>
+
                 <source media="(min-width: 768px)" srcset="CB1.png">
+
                 <img src="CBM1.png" alt="Tarot Course Banner" class="w-full h-auto object-cover">
+
             </picture>
+
         </div>
+
+
 
         <div class="text-center">
+
             <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20my%20slot%20for%20the%20Tarot%20Course." target="_blank" class="btn-book inline-block py-3 px-10 rounded-full text-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+
                 Book Your Slot
+
             </a>
+
         </div>
+
     </section>
+
+
 
     <section id="about" class="mb-20 scroll-mt-32">
+
       <h2 class="section-title text-center mb-12">About Me</h2>
+
       <div class="bg-white/60 backdrop-blur-sm border-2 border-yellow-100 rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto shadow-sm hover:shadow-md transition-all duration-300">
+
          <div class="w-full md:w-1/3 profile-img-container">
+
             <img src="julius(uma).jpeg" alt="Julius C. Ayaj (Uma)" class="w-full h-auto rounded-xl border-2 border-yellow-200 object-cover aspect-[3/4]">
+
          </div>
+
          <div class="w-full md:w-2/3 text-center md:text-left">
+
             <h3 class="text-2xl font-bold text-brand mb-4" style="font-family: 'Playfair Display', serif;">Julius C. Ayaj (Uma)</h3>
+
             <p class="text-gray-700 text-lg leading-relaxed font-light">
+
                Julius C. Ayaj (Uma) is a gifted spiritual healer, tarot reader, and author who has spent the past 5 years guiding individuals on their journey toward spiritual awakening and personal growth.
+
             </p>
+
             <div class="mt-6">
+
                 <span class="inline-block bg-yellow-100 text-brand text-xs px-3 py-1 rounded-full uppercase tracking-wider font-bold">Healer</span>
+
                 <span class="inline-block bg-yellow-100 text-brand text-xs px-3 py-1 rounded-full uppercase tracking-wider font-bold ml-2">Author</span>
+
                 <span class="inline-block bg-yellow-100 text-brand text-xs px-3 py-1 rounded-full uppercase tracking-wider font-bold ml-2">Mentor</span>
+
             </div>
+
          </div>
+
       </div>
+
     </section>
+
+
 
     <section class="mb-12">
+
        <h2 class="section-title text-center mb-12">Client Love & Feedback</h2>
+
        <div class="grid md:grid-cols-3 gap-6">
+
           <div class="service-card rounded-lg p-8 text-center relative overflow-hidden">
+
              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-300 to-yellow-500"></div>
+
              <div class="text-yellow-500 text-xl mb-4 tracking-widest">★★★★★</div>
+
              <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"I was facing so many delays in my marriage. Uma ji's guidance gave me hope and clarity. Her remedies worked like magic, and I am finally happily engaged!"</p>
+
              <h4 class="font-bold text-brand font-playfair text-lg">- Priya Sharma</h4>
+
              <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Topic: Marriage</span>
+
           </div>
+
           <div class="service-card rounded-lg p-8 text-center relative overflow-hidden">
+
              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-300 to-yellow-500"></div>
+
              <div class="text-yellow-500 text-xl mb-4 tracking-widest">★★★★★</div>
+
              <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"My relationship was going through a very rough patch. The reading was spot on and helped me understand my partner's perspective. Highly recommended."</p>
+
              <h4 class="font-bold text-brand font-playfair text-lg">- Rohan Verma</h4>
+
              <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Topic: Relationship</span>
+
           </div>
+
           <div class="service-card rounded-lg p-8 text-center relative overflow-hidden">
+
              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-300 to-yellow-500"></div>
+
              <div class="text-yellow-500 text-xl mb-4 tracking-widest">★★★★★</div>
+
              <p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"I had been feeling constantly drained and low on energy. The healing session was incredible. I feel lighter, healthier, and more positive now."</p>
+
              <h4 class="font-bold text-brand font-playfair text-lg">- Anjali Iyer</h4>
+
              <span class="text-xs text-gray-400 uppercase tracking-widest mt-1 block">Topic: Health</span>
+
           </div>
+
        </div>
+
     </section>
+
+
 
     <section class="mb-20">
+
       <h3 class="text-xl font-bold text-center text-gray-400 uppercase tracking-widest mb-8">More Success Stories</h3>
+
       <div class="relative overflow-hidden w-full" id="screenshot-slider-container">
+
           <div class="screenshot-track" id="screenshot-track">
+
               </div>
+
       </div>
+
     </section>
 
+
+
    </main> <footer class="w-full bg-gradient-to-b from-amber-50 to-yellow-100 pt-16 pb-8 border-t-4 border-[#b8860b] mt-20">
+
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-center md:text-left">
+
               
+
               <div>
+
                 <h3 class="text-3xl font-bold text-[#b8860b] mb-4" style="font-family: 'Playfair Display', serif;">Spiritual Girl 888</h3>
+
                 <p class="text-gray-600 mb-6 text-sm leading-relaxed">Guiding souls towards clarity, love, and spiritual awakening through the ancient wisdom of Tarot and divine channeling.</p>
+
                 <div class="flex justify-center md:justify-start gap-4">
+
                     <a href="https://www.instagram.com/julius_ayaj19/" target="_blank" class="w-10 h-10 rounded-full bg-white border border-yellow-300 flex items-center justify-center text-[#b8860b] hover:bg-[#b8860b] hover:text-white transition-all duration-300 shadow-sm"><i class="fab fa-instagram"></i></a>
+
                     <a href="https://www.youtube.com/@Julius888" target="_blank" class="w-10 h-10 rounded-full bg-white border border-yellow-300 flex items-center justify-center text-[#b8860b] hover:bg-[#b8860b] hover:text-white transition-all duration-300 shadow-sm"><i class="fab fa-youtube"></i></a>
+
                     <a href="https://wa.me/919395857987" target="_blank" class="w-10 h-10 rounded-full bg-white border border-yellow-300 flex items-center justify-center text-[#b8860b] hover:bg-[#b8860b] hover:text-white transition-all duration-300 shadow-sm"><i class="fab fa-whatsapp"></i></a>
+
                 </div>
+
               </div>
 
+
+
               <div>
+
                   <h4 class="text-lg font-bold text-gray-800 mb-6 uppercase tracking-widest border-b border-yellow-200 pb-2 inline-block">Quick Links</h4>
+
                   <ul class="space-y-3 text-sm text-gray-600">
+
                       <li><a href="#" onclick="window.scrollTo(0,0)" class="hover:text-[#b8860b] transition-colors flex items-center justify-center md:justify-start"><span class="mr-2 text-[#b8860b]">›</span> Home</a></li>
+
                       <li><a href="#about" class="hover:text-[#b8860b] transition-colors flex items-center justify-center md:justify-start"><span class="mr-2 text-[#b8860b]">›</span> About Uma</a></li>
+
                       <li><a href="#course" class="hover:text-[#b8860b] transition-colors flex items-center justify-center md:justify-start"><span class="mr-2 text-[#b8860b]">›</span> Tarot Course</a></li>
+
                       <li><a href="#consultation" class="hover:text-[#b8860b] transition-colors flex items-center justify-center md:justify-start"><span class="mr-2 text-[#b8860b]">›</span> Book Consultation</a></li>
+
                   </ul>
+
               </div>
 
+
+
               <div>
+
                   <h4 class="text-lg font-bold text-gray-800 mb-6 uppercase tracking-widest border-b border-yellow-200 pb-2 inline-block">Services</h4>
+
                   <ul class="space-y-3 text-sm text-gray-600">
+
                       <li><a href="#marriage" class="hover:text-[#b8860b] transition-colors flex items-center justify-center md:justify-start"><span class="mr-2 text-[#b8860b]">›</span> Marriage Readings</a></li>
+
                       <li><a href="#relationship" class="hover:text-[#b8860b] transition-colors flex items-center justify-center md:justify-start"><span class="mr-2 text-[#b8860b]">›</span> Relationship Guidance</a></li>
+
                       <li><a href="#career" class="hover:text-[#b8860b] transition-colors flex items-center justify-center md:justify-start"><span class="mr-2 text-[#b8860b]">›</span> Career & Wealth</a></li>
+
                       <li><a href="#special" class="hover:text-[#b8860b] transition-colors flex items-center justify-center md:justify-start"><span class="mr-2 text-[#b8860b]">›</span> Angel Messages</a></li>
+
                   </ul>
+
               </div>
 
+
+
               <div>
+
                   <h4 class="text-lg font-bold text-gray-800 mb-6 uppercase tracking-widest border-b border-yellow-200 pb-2 inline-block">Contact</h4>
+
                   <p class="text-gray-600 text-sm mb-4">Have questions? Reach out directly on WhatsApp for quick support.</p>
+
                   <a href="https://wa.me/919395857987" target="_blank" class="inline-flex items-center justify-center bg-[#b8860b] hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-yellow-500/30 w-full md:w-auto">
+
                       <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+
                   </a>
+
               </div>
+
           </div>
+
+
 
           <div class="border-t border-yellow-200 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs">
+
               <p>&copy; 2026 Spiritual Girl 888. All Rights Reserved.</p>
+
               <p class="mt-2 md:mt-0 flex items-center">Designed with Divine Energy <span class="text-yellow-600 ml-1">✨</span></p>
+
           </div>
+
       </div>
+
     </footer>
+
   </div>
+
   <script>
+
     // Default configuration
+
     const defaultConfig = {
+
       site_title: "Spiritual Girl 888",
+
       hero_title: "Spiritual Girl 888",
+
       hero_subtitle: "Divine Tarot Readings & Spiritual Guidance",
+
       scrolling_notice: "NO REFUND ONCE PAID | READING WILL BE PROVIDED WITHIN 3-4 DAYS",
+
       text_dark: "#2d2d2d", text_brand: "#b8860b", bg_light: "#fffef9", button_color: "#b8860b"
+
     };
+
     
+
     // Scroll to Top Button
+
     const scrollToTopBtn = document.getElementById('scroll-to-top');
+
     const mainContent = document.querySelector('.overflow-auto');
+
     if (mainContent && scrollToTopBtn) {
+
       mainContent.addEventListener('scroll', () => {
+
         if (mainContent.scrollTop > 300) scrollToTopBtn.classList.remove('hidden');
+
         else scrollToTopBtn.classList.add('hidden');
+
       });
+
       scrollToTopBtn.addEventListener('click', () => mainContent.scrollTo({ top: 0, behavior: 'smooth' }));
+
     }
+
+
 
     // --- HERO SLIDER SCRIPT ---
+
     let currentSlide = 0;
+
     const slides = document.querySelectorAll('.slide');
+
     const dots = document.querySelectorAll('.dot');
+
     const totalSlides = slides.length;
+
     let slideInterval;
+
     function showSlide(index) {
+
         slides.forEach((slide) => { slide.classList.remove('active'); slide.style.zIndex = 0; });
+
         dots.forEach(dot => { dot.classList.remove('opacity-100'); dot.classList.add('opacity-50'); });
+
         slides[index].classList.add('active');
+
         dots[index].classList.remove('opacity-50'); dots[index].classList.add('opacity-100');
+
         currentSlide = index;
+
     }
+
     function nextSlide() { let nextIndex = (currentSlide + 1) % totalSlides; showSlide(nextIndex); }
+
     function startSlider() { slideInterval = setInterval(nextSlide, 5000); }
+
     function changeSlide(index) { clearInterval(slideInterval); showSlide(index); startSlider(); }
+
     if(slides.length > 0) startSlider();
 
+
+
     // --- SCREENSHOT FEEDBACK SLIDER SCRIPT (Auto Scroll 3s) ---
+
     const feedbackImages = [
+
         "W1 (1).jpeg", "W1 (2).jpeg", "W1 (3).jpeg", "W1 (4).jpeg", "W1 (5).jpeg",
+
         "W1 (6).jpeg", "W1 (7).jpeg", "W1 (8).jpeg", "W1 (9).jpeg", "W1 (10).jpeg",
+
         "W1 (11).jpeg", "W1 (12).jpeg", "W1 (13).jpeg", "W1 (14).jpeg"
+
     ];
+
     const track = document.getElementById('screenshot-track');
+
     
+
     // Create Image Cards
+
     feedbackImages.forEach(imgSrc => {
+
         const div = document.createElement('div');
+
         div.className = 'screenshot-card';
+
         div.innerHTML = `<img src="${imgSrc}" alt="Client Feedback">`;
+
         track.appendChild(div);
+
     });
+
+
 
     // Auto Scroll Logic - ADJUSTED FOR SMALLER CARDS
+
     let scrollAmount = 0;
+
     function autoScrollScreenshots() {
+
         if (!track) return;
+
         const cardWidth = 175; // 160px width + 15px gap
+
         const maxScroll = track.scrollWidth - track.clientWidth;
+
         
+
         scrollAmount += cardWidth;
+
         if (scrollAmount > maxScroll) {
+
             scrollAmount = 0; // Reset to start
+
         }
+
         track.style.transform = `translateX(-${scrollAmount}px)`;
+
     }
+
     setInterval(autoScrollScreenshots, 3000); // 3 Seconds Interval
 
+
+
     // --- SALES POPUP SCRIPT ---
+
     const popup = document.getElementById('sales-popup');
+
     const popupMessage = document.getElementById('popup-message');
+
     const cities = ["Delhi", "Mumbai", "Bangalore", "Pune", "Hyderabad", "Jaipur", "Lucknow", "Chandigarh", "Indore", "Ahmedabad"];
+
     const names = ["Anjali", "Priya", "Rahul", "Sneha", "Amit", "Kavita", "Rohan", "Neha", "Vikram", "Pooja", "Aisha", "Siddharth"];
+
     const readings = ["Marriage Audio Reading", "Relationship Reading", "Career Prediction", "Angel Guidance", "Future Spouse Reading", "Urgent Reading"];
 
+
+
     function showSalesPopup() {
+
         const randomName = names[Math.floor(Math.random() * names.length)];
+
         const randomCity = cities[Math.floor(Math.random() * cities.length)];
+
         const randomReading = readings[Math.floor(Math.random() * readings.length)];
+
         popupMessage.innerText = `${randomName} from ${randomCity} just booked ${randomReading}`;
+
         popup.classList.add('show');
+
         setTimeout(() => { popup.classList.remove('show'); }, 5000);
+
     }
+
     setInterval(showSalesPopup, 15000);
+
     setTimeout(showSalesPopup, 5000);
 
-    // --- WELCOME POPUP LOGIC ---
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            document.getElementById('welcome-popup').classList.add('active');
-        }, 1000); // Show after 1 second
-    });
 
-    function closeWelcomePopup() {
-        document.getElementById('welcome-popup').classList.remove('active');
-    }
 
     // Initialize Element SDK
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange: async (config) => {
-          const scrollingNotice = document.getElementById('scrolling-notice');
-          if (scrollingNotice) {
-            const notice = config.scrolling_notice || defaultConfig.scrolling_notice;
-            scrollingNotice.textContent = notice + " \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 " + notice;
-          }
-          document.title = config.site_title || defaultConfig.site_title;
-        },
-        mapToCapabilities: (config) => ({
-          recolorables: [
-            { get: () => config.text_brand || defaultConfig.text_brand, set: (value) => { config.text_brand = value; window.elementSdk.setConfig({ text_brand: value }); }},
-            { get: () => config.text_dark || defaultConfig.text_dark, set: (value) => { config.text_dark = value; window.elementSdk.setConfig({ text_dark: value }); }},
-            { get: () => config.bg_light || defaultConfig.bg_light, set: (value) => { config.bg_light = value; window.elementSdk.setConfig({ bg_light: value }); }},
-            { get: () => config.button_color || defaultConfig.button_color, set: (value) => { config.button_color = value; window.elementSdk.setConfig({ button_color: value }); }}
-          ],
-          borderables: [],
-          fontEditable: undefined,
-          fontSizeable: undefined
-        }),
-        mapToEditPanelValues: (config) => new Map([
-          ["site_title", config.site_title || defaultConfig.site_title],
-          ["hero_title", config.hero_title || defaultConfig.hero_title],
-          ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
-          ["scrolling_notice", config.scrolling_notice || defaultConfig.scrolling_notice]
-        ])
-      });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9caa05fa24ef794d',t:'MTc3MDU0MjEzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
 
+    if (window.elementSdk) {
+
+      window.elementSdk.init({
+
+        defaultConfig,
+
+        onConfigChange: async (config) => {
+
+          const scrollingNotice = document.getElementById('scrolling-notice');
+
+          if (scrollingNotice) {
+
+            const notice = config.scrolling_notice || defaultConfig.scrolling_notice;
+
+            scrollingNotice.textContent = notice + " \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 " + notice;
+
+          }
+
+          document.title = config.site_title || defaultConfig.site_title;
+
+        },
+
+        mapToCapabilities: (config) => ({
+
+          recolorables: [
+
+            { get: () => config.text_brand || defaultConfig.text_brand, set: (value) => { config.text_brand = value; window.elementSdk.setConfig({ text_brand: value }); }},
+
+            { get: () => config.text_dark || defaultConfig.text_dark, set: (value) => { config.text_dark = value; window.elementSdk.setConfig({ text_dark: value }); }},
+
+            { get: () => config.bg_light || defaultConfig.bg_light, set: (value) => { config.bg_light = value; window.elementSdk.setConfig({ bg_light: value }); }},
+
+            { get: () => config.button_color || defaultConfig.button_color, set: (value) => { config.button_color = value; window.elementSdk.setConfig({ button_color: value }); }}
+
+          ],
+
+          borderables: [],
+
+          fontEditable: undefined,
+
+          fontSizeable: undefined
+
+        }),
+
+        mapToEditPanelValues: (config) => new Map([
+
+          ["site_title", config.site_title || defaultConfig.site_title],
+
+          ["hero_title", config.hero_title || defaultConfig.hero_title],
+
+          ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+
+          ["scrolling_notice", config.scrolling_notice || defaultConfig.scrolling_notice]
+
+        ])
+
+      });
+
+    }
+
+  </script>
+
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9caa05fa24ef794d',t:'MTc3MDU0MjEzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</html>
