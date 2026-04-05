@@ -478,7 +478,6 @@
     ];
     const track = document.getElementById('screenshot-track');
     
-    // Create Image Cards
     feedbackImages.forEach(imgSrc => {
         const div = document.createElement('div');
         div.className = 'screenshot-card';
@@ -486,20 +485,17 @@
         track.appendChild(div);
     });
 
-    // Auto Scroll Logic - ADJUSTED FOR SMALLER CARDS
     let scrollAmount = 0;
     function autoScrollScreenshots() {
         if (!track) return;
-        const cardWidth = 175; // 160px width + 15px gap
+        const cardWidth = 175; 
         const maxScroll = track.scrollWidth - track.clientWidth;
         
         scrollAmount += cardWidth;
-        if (scrollAmount > maxScroll) {
-            scrollAmount = 0; // Reset to start
-        }
+        if (scrollAmount > maxScroll) { scrollAmount = 0; }
         track.style.transform = `translateX(-${scrollAmount}px)`;
     }
-    setInterval(autoScrollScreenshots, 3000); // 3 Seconds Interval
+    setInterval(autoScrollScreenshots, 3000);
 
     // --- SALES POPUP SCRIPT ---
     const popup = document.getElementById('sales-popup');
@@ -518,6 +514,28 @@
     }
     setInterval(showSalesPopup, 15000);
     setTimeout(showSalesPopup, 5000);
+
+    // --- WHATSAPP DYNAMIC LINK APPENDER (NEW FEATURE) ---
+    // Ye script automatic website ka current URL aur section link WhatsApp message me add karegi
+    window.addEventListener('DOMContentLoaded', () => {
+        const waLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+        waLinks.forEach(link => {
+            const section = link.closest('section');
+            let urlToShare = window.location.origin + window.location.pathname;
+            
+            // Add section hash if inside a section (e.g. #marriage)
+            if (section && section.id) {
+                urlToShare += '#' + section.id;
+            }
+            
+            const encodedUrl = encodeURIComponent('\n\nWebsite Link: ' + urlToShare);
+            
+            // Append only to links that have a text message
+            if (link.href.includes('text=')) {
+                link.href = link.href + encodedUrl;
+            }
+        });
+    });
 
     // Initialize Element SDK
     if (window.elementSdk) {
