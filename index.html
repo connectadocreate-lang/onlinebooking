@@ -68,12 +68,38 @@
     /* POPUP STYLES */
     .sales-popup { transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); transform: translateY(150%); opacity: 0; }
     .sales-popup.show { transform: translateY(0); opacity: 1; }
+
+    /* WELCOME POPUP */
+    .welcome-overlay { display: none; }
+    .welcome-overlay.active { display: flex; animation: fadeIn 0.5s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full premium-bg text-dark overflow-x-hidden" style="font-family: 'Lora', serif;">
   
+  <div id="welcome-popup" class="welcome-overlay fixed inset-0 z-[100] items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+      <div class="relative w-full max-w-md bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-xl overflow-hidden shadow-2xl p-8 transform scale-100 transition-transform">
+          <button onclick="closeWelcomePopup()" class="absolute top-3 right-3 z-10 text-gray-500 hover:text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold text-2xl transition-colors">&times;</button>
+          
+          <div class="text-center mb-6">
+              <h3 class="text-2xl font-bold text-brand mb-2" style="font-family: 'Playfair Display', serif;">First Time Client Consultation</h3>
+              <p class="text-sm text-blue-800 font-bold bg-blue-100 inline-block px-4 py-1.5 rounded-full shadow-sm">10 Minutes - Perfect Introduction</p>
+          </div>
+          
+          <p class="text-gray-700 mb-6 text-sm text-center leading-relaxed">
+              Perfect for first-time clients! Get to know Spiritual Girl 888, understand the services available, and receive personalized recommendations based on your needs. <br><br>
+              <strong class="text-gray-900 block bg-white/60 p-3 rounded-lg border border-blue-100 shadow-sm">"I will listen to your condition/ story and will suggest what readings you should take."</strong>
+          </p>
+          
+          <div class="flex justify-center gap-4">
+              <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(10%20min)%20-%20Rs.%20499" target="_blank" class="btn-book py-3 px-8 rounded-full text-sm shadow-md transition-transform hover:scale-105"> ₹499 </a> 
+              <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(10%20min)%20-%20%2410" target="_blank" class="btn-book py-3 px-8 rounded-full text-sm shadow-md transition-transform hover:scale-105"> $10 </a>
+          </div>
+      </div>
+  </div>
+
   <div class="header-nav fixed top-0 left-0 right-0 z-50">
    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-center relative">
     <h1 class="text-3xl font-bold text-brand text-center" style="font-family: 'Playfair Display', serif;">Spiritual Girl 888</h1>
@@ -299,11 +325,13 @@
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• In-depth situation analysis</li><li>• Multiple topic discussion</li><li>• Customized guidance plan</li><li>• Unlimited questions</li><li>• Follow-up support</li></ul>
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Premium%20Consultation%20(60%20min)%20-%20Rs.%203500" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹3,500 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Premium%20Consultation%20(60%20min)%20-%20%2450" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $50 </a></div>
       </div>
-      <div class="service-card rounded-lg p-8 md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-300">
+      
+      <div class="service-card rounded-lg p-8 md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-300 relative">
+       <div class="absolute -top-3 -right-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">RECOMMENDED</div>
        <h3 class="text-xl font-bold text-brand mb-2">First Time Client Consultation</h3>
-       <p class="text-sm text-gray-600 mb-4 font-light">15 Minutes - Perfect Introduction</p>
-       <p class="text-gray-700 mb-6 text-sm">Perfect for first-time clients! Get to know Spiritual Girl 888, understand the services available, and receive personalized recommendations based on your needs. This is a 15-minute call to help you decide which reading is best for you.</p>
-       <div class="flex gap-3 flex-wrap"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(15%20min)%20-%20Rs.%20499" target="_blank" class="btn-book py-2.5 px-6 rounded text-sm"> ₹499 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(15%20min)%20-%20%2410" target="_blank" class="btn-book py-2.5 px-6 rounded text-sm"> $10 </a></div>
+       <p class="text-sm text-gray-600 mb-4 font-light">10 Minutes - Perfect Introduction</p>
+       <p class="text-gray-700 mb-6 text-sm">Perfect for first-time clients! Get to know Spiritual Girl 888, understand the services available, and receive personalized recommendations based on your needs. <br><br> <strong>"I will listen to your condition/ story and will suggest what readings you should take."</strong></p>
+       <div class="flex gap-3 flex-wrap"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(10%20min)%20-%20Rs.%20499" target="_blank" class="btn-book py-2.5 px-6 rounded text-sm"> ₹499 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(10%20min)%20-%20%2410" target="_blank" class="btn-book py-2.5 px-6 rounded text-sm"> $10 </a></div>
       </div>
      </div>
     </section>
@@ -515,27 +543,35 @@
     setInterval(showSalesPopup, 15000);
     setTimeout(showSalesPopup, 5000);
 
-    // --- WHATSAPP DYNAMIC LINK APPENDER (NEW FEATURE) ---
-    // Ye script automatic website ka current URL aur section link WhatsApp message me add karegi
+    // --- WHATSAPP DYNAMIC LINK APPENDER ---
     window.addEventListener('DOMContentLoaded', () => {
         const waLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
         waLinks.forEach(link => {
             const section = link.closest('section');
             let urlToShare = window.location.origin + window.location.pathname;
             
-            // Add section hash if inside a section (e.g. #marriage)
             if (section && section.id) {
                 urlToShare += '#' + section.id;
             }
             
-            const encodedUrl = encodeURIComponent('\n\nWebsite Link: ' + urlToShare);
-            
-            // Append only to links that have a text message
-            if (link.href.includes('text=')) {
+            // Only append if it hasn't been appended yet
+            if (link.href.includes('text=') && !link.href.includes('Website%20Link%3A')) {
+                const encodedUrl = encodeURIComponent('\n\nWebsite Link: ' + urlToShare);
                 link.href = link.href + encodedUrl;
             }
         });
     });
+
+    // --- WELCOME POPUP LOGIC ---
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('welcome-popup').classList.add('active');
+        }, 1000); 
+    });
+
+    function closeWelcomePopup() {
+        document.getElementById('welcome-popup').classList.remove('active');
+    }
 
     // Initialize Element SDK
     if (window.elementSdk) {
