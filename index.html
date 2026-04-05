@@ -68,12 +68,29 @@
     /* POPUP STYLES */
     .sales-popup { transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); transform: translateY(150%); opacity: 0; }
     .sales-popup.show { transform: translateY(0); opacity: 1; }
+
+    /* NEW WELCOME POPUP STYLES */
+    .welcome-overlay { display: none; }
+    .welcome-overlay.active { display: flex; animation: fadeIn 0.5s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full premium-bg text-dark overflow-x-hidden" style="font-family: 'Lora', serif;">
   
+  <div id="welcome-popup" class="welcome-overlay fixed inset-0 z-[100] items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+      <div class="relative w-full max-w-lg bg-transparent rounded-xl overflow-hidden shadow-2xl transform scale-100 transition-transform">
+          <button onclick="closeWelcomePopup()" class="absolute top-2 right-2 z-10 bg-white/80 text-gray-800 hover:text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold text-xl shadow-md">&times;</button>
+          <a href="https://wa.me/919395857987?text=Hi%20I%20want%20to%20take%204%3A4%20Portal%20Blessings!%20%E2%9C%A8%20Unlimited%20Tarot%20Guidance%20%7C%201-Hour%20Phone%20Session" target="_blank" class="block w-full">
+            <picture>
+                <source media="(min-width: 768px)" srcset="444.png">
+                <img src="44.png" alt="4:4 Portal Blessings" class="w-full h-auto object-cover rounded-xl">
+            </picture>
+          </a>
+      </div>
+  </div>
+
   <div class="header-nav fixed top-0 left-0 right-0 z-50">
    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-center relative">
     <h1 class="text-3xl font-bold text-brand text-center" style="font-family: 'Playfair Display', serif;">Spiritual Girl 888</h1>
@@ -556,6 +573,17 @@
             }
         });
     });
+
+    // --- WELCOME POPUP LOGIC (NEW 4:4 Portal Blessings) ---
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('welcome-popup').classList.add('active');
+        }, 1000); // Show after 1 second
+    });
+
+    function closeWelcomePopup() {
+        document.getElementById('welcome-popup').classList.remove('active');
+    }
 
     // Initialize Element SDK
     if (window.elementSdk) {
