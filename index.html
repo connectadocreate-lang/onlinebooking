@@ -80,12 +80,12 @@
  <body class="h-full premium-bg text-dark overflow-x-hidden" style="font-family: 'Lora', serif;">
   
   <div id="welcome-popup" class="welcome-overlay fixed inset-0 z-[100] items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div class="relative w-full max-w-[95%] md:max-w-4xl lg:max-w-5xl bg-transparent rounded-xl overflow-hidden shadow-2xl transform scale-100 transition-transform">
-          <button onclick="closeWelcomePopup()" class="absolute top-2 right-2 md:top-4 md:right-4 z-10 bg-white/80 text-gray-800 hover:text-red-600 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl shadow-md transition-all">&times;</button>
+      <div class="relative w-full max-w-sm md:max-w-3xl lg:max-w-4xl bg-transparent rounded-xl overflow-hidden shadow-2xl transform scale-100 transition-transform">
+          <button onclick="closeWelcomePopup()" class="absolute top-2 right-2 z-10 bg-white/80 text-gray-800 hover:text-red-600 rounded-full w-8 h-8 flex items-center justify-center font-bold text-xl shadow-md">&times;</button>
           <a href="https://wa.me/919395857987?text=Hi%20I%20want%20to%20take%204%3A4%20Portal%20Blessings!%20%E2%9C%A8%20Unlimited%20Tarot%20Guidance%20%7C%201-Hour%20Phone%20Session" target="_blank" class="block w-full">
             <picture>
-                <source media="(min-width: 768px)" srcset="444.png">
-                <img src="44.png" alt="4:4 Portal Blessings" class="w-full h-auto object-contain rounded-xl">
+                <source media="(min-width: 768px)" srcset="IMG1.png">
+                <img src="IMG2.png" alt="4:4 Portal Blessings" class="w-full h-auto object-cover rounded-xl">
             </picture>
           </a>
       </div>
@@ -335,14 +335,6 @@
        <ul class="text-gray-700 space-y-2 mb-6 text-sm"><li>• In-depth situation analysis</li><li>• Multiple topic discussion</li><li>• Customized guidance plan</li><li>• Unlimited questions</li><li>• Follow-up support</li></ul>
        <div class="flex gap-3"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Premium%20Consultation%20(60%20min)%20-%20Rs.%203500" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> ₹3,500 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20Premium%20Consultation%20(60%20min)%20-%20%2450" target="_blank" class="btn-book flex-1 py-2.5 px-4 rounded text-center text-sm"> $50 </a></div>
       </div>
-      
-      <div id="consultation-first-time-10min" class="service-card rounded-lg p-8 md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-300 relative scroll-mt-32">
-       <div class="absolute -top-3 -right-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">RECOMMENDED</div>
-       <h3 class="text-xl font-bold text-brand mb-2">First Time Client Consultation</h3>
-       <p class="text-sm text-gray-600 mb-4 font-light">10 Minutes - Perfect Introduction</p>
-       <p class="text-gray-700 mb-6 text-sm">Perfect for first-time clients! Get to know Spiritual Girl 888, understand the services available, and receive personalized recommendations based on your needs. <br><br> <strong>"I will listen to your condition/ story and will suggest what readings you should take."</strong></p>
-       <div class="flex gap-3 flex-wrap"><a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(10%20min)%20-%20Rs.%20499" target="_blank" class="btn-book py-2.5 px-6 rounded text-sm"> ₹499 </a> <a href="https://wa.me/919395857987?text=Hi!%20I%20want%20to%20book%20First%20Time%20Client%20Consultation%20(10%20min)%20-%20%2410" target="_blank" class="btn-book py-2.5 px-6 rounded text-sm"> $10 </a></div>
-      </div>
      </div>
     </section>
 
@@ -574,7 +566,7 @@
         });
     });
 
-    // --- WELCOME POPUP LOGIC ---
+    // --- WELCOME POPUP LOGIC (NEW 4:4 Portal Blessings) ---
     window.addEventListener('load', function() {
         setTimeout(function() {
             document.getElementById('welcome-popup').classList.add('active');
